@@ -30,7 +30,7 @@ def is_superuser_staff_or_in_translators_group(user):
     elif user.is_superuser and user.is_staff:
         return True
     else:
-        return user.groups.filter(name='translators').exists()
+        return False
 
 
 def can_translate_language(user, langid):
@@ -41,4 +41,4 @@ def can_translate_language(user, langid):
     elif user.is_superuser and user.is_staff:
         return True
     else:
-        return user.groups.filter(name='translators-%s' % langid).exists()
+        return False
